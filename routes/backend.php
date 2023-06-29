@@ -13,4 +13,11 @@ use App\Http\Controllers\dashboard\DashboardController;
 |
 */
 
-Route::get('dashboard/admin',[DashboardController::class,'index']);
+Route::get('/dashboard/admin',[DashboardController::class,'index']);
+
+Route::get('/dashboard/user', function () {
+    return view('dashboard.user.dashboard');
+})->middleware(['auth'])->name('dashboard.user');
+
+require __DIR__.'/auth.php';
+
